@@ -5,7 +5,7 @@
 This project is an **AI Recruitment System** designed to accelerate the hiring process for HR and technical recruiters. The application allows recruiters to:
 
 1. 📄 Upload candidate resumes, job descriptions, job roles, and additional evaluation instructions.
-2. 🤖 Evaluate resumes using AI (SimpleAI, Ollama, OpenAI, Claude, or Mistral).
+2. 🤖 Evaluate resumes using AI (SimpleAI - built-in free model).
 3. ✉️ Automatically send email notifications to candidates with feedback, indicating whether they are selected or rejected.
 4. 📅 Schedule Zoom meetings for the next day as an initial round of interviews.
 
@@ -17,12 +17,8 @@ This system significantly streamlines the recruitment process by selecting the m
 
 To configure this application, the following credentials and accounts are required:
 
-### AI Model Options 🤖:
-- **SimpleAI** (Recommended - FREE): Built-in AI model, no API key required
-- **Ollama** (FREE): Local AI model, requires Ollama installation
-- **OpenAI**: Requires API key from OpenAI
-- **Claude**: Requires API key from Anthropic
-- **Mistral**: Requires API key from Mistral
+### AI Model 🤖:
+- **SimpleAI** (FREE): Built-in AI model, no API key required - works out of the box!
 
 ### Gmail Account for Email Notifications 📧:
 1. Create or use an existing Gmail account for the recruiter.
@@ -65,57 +61,43 @@ To configure this application, the following credentials and accounts are requir
 
 3. Install dependencies:
    ```bash
-   pip install streamlit anthropic mistralai openai phidata pypdf2 streamlit-pdf-viewer huggingface_hub
+   pip install -r requirements.txt
    ```
 
 4. Run the application:
    ```bash
-   python -m streamlit run app.py
+   streamlit run app.py
    ```
 
 5. Open your browser and go to: `http://localhost:7860`
 
-### Using Ollama (Free Local AI) 🆓
+### Deploy on Streamlit Cloud ☁️
 
-1. Install Ollama from [https://ollama.ai/](https://ollama.ai/)
-2. Pull a model:
-   ```bash
-   ollama pull llama3.2:3b
-   ```
-3. Start Ollama service:
-   ```bash
-   ollama serve
-   ```
-4. Run the application and select "Ollama" as the model provider
-
-### Run with Docker 🐳
-
-1. Build the Docker image:
-   ```bash
-   docker build -t ai-recruitment-system .
-   ```
-
-2. Run the Docker container:
-   ```bash
-   docker run -p 7860:7860 ai-recruitment-system
-   ```
+1. Fork this repository to your GitHub account
+2. Go to [Streamlit Cloud](https://share.streamlit.io/)
+3. Connect your GitHub account
+4. Select this repository
+5. Deploy with the following settings:
+   - Main file path: `app.py`
+   - Python version: 3.10
 
 ---
 
 ## Features ✨
 
-- **Multiple AI Models**: Choose from SimpleAI (free), Ollama (free local), OpenAI, Claude, or Mistral
+- **SimpleAI Model**: Built-in free AI model with no external dependencies
 - **Automated Resume Analysis**: 📄 Evaluate candidate resumes based on the provided job description
 - **Smart Candidate Selection**: AI-powered analysis with detailed feedback
 - **Email Notifications**: ✉️ Notify candidates of their selection status with detailed feedback
 - **Zoom Meeting Scheduler**: 📅 Automatically schedule interviews with selected candidates
-- **Free Options Available**: Use SimpleAI or Ollama without any API costs
+- **Cloud Ready**: Works perfectly on Streamlit Cloud deployment
+- **No API Costs**: Completely free to use
 
 ---
 
 ## How to Use 🎯
 
-1. **Configure Settings**: In the sidebar, set up your AI model, Zoom credentials, and Gmail settings
+1. **Configure Settings**: In the sidebar, set up your Zoom credentials and Gmail settings
 2. **Upload Resume**: Upload a candidate's resume in PDF format
 3. **Select Job Role**: Choose the position from available job descriptions
 4. **Analyze Resume**: Click "Analyze Resume" to get AI-powered evaluation
@@ -128,8 +110,6 @@ To configure this application, the following credentials and accounts are requir
 
 - **Streamlit**: Web application framework
 - **SimpleAI**: Built-in free AI model
-- **Ollama**: Local AI model support
-- **OpenAI/Claude/Mistral**: Cloud AI models
 - **PyPDF2**: PDF processing
 - **Python**: Backend logic
 
@@ -137,11 +117,21 @@ To configure this application, the following credentials and accounts are requir
 
 ## Benefits 🌟
 
-- ✅ **Completely FREE** with SimpleAI or Ollama
-- ✅ **No API costs** for basic functionality
-- ✅ **Privacy** - data stays on your computer with local models
+- ✅ **Completely FREE** - No API costs
+- ✅ **No external dependencies** - Works out of the box
+- ✅ **Cloud ready** - Perfect for Streamlit Cloud deployment
 - ✅ **Fast and reliable** resume analysis
 - ✅ **Automated workflow** from resume to interview scheduling
+- ✅ **Privacy** - No data sent to external services
+
+---
+
+## Deployment Status ✅
+
+This application is **ready for deployment** on:
+- ✅ Streamlit Cloud
+- ✅ Local development
+- ✅ Docker containers
 
 ---
 
