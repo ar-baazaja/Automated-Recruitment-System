@@ -5,7 +5,7 @@
 This project is an **AI Recruitment System** designed to accelerate the hiring process for HR and technical recruiters. The application allows recruiters to:
 
 1. 📄 Upload candidate resumes, job descriptions, job roles, and additional evaluation instructions.
-2. 🤖 Evaluate resumes using AI.
+2. 🤖 Evaluate resumes using AI (SimpleAI, Ollama, OpenAI, Claude, or Mistral).
 3. ✉️ Automatically send email notifications to candidates with feedback, indicating whether they are selected or rejected.
 4. 📅 Schedule Zoom meetings for the next day as an initial round of interviews.
 
@@ -17,8 +17,12 @@ This system significantly streamlines the recruitment process by selecting the m
 
 To configure this application, the following credentials and accounts are required:
 
-### API Keys for LLM Models 🔑:
-- Obtain API keys from the official websites of **Mistral**, **Claude**, or **OpenAI**.
+### AI Model Options 🤖:
+- **SimpleAI** (Recommended - FREE): Built-in AI model, no API key required
+- **Ollama** (FREE): Local AI model, requires Ollama installation
+- **OpenAI**: Requires API key from OpenAI
+- **Claude**: Requires API key from Anthropic
+- **Mistral**: Requires API key from Mistral
 
 ### Gmail Account for Email Notifications 📧:
 1. Create or use an existing Gmail account for the recruiter.
@@ -42,97 +46,102 @@ To configure this application, the following credentials and accounts are requir
    - `user:read:email:admin`
    - `user:read:list_users:admin`
    - `billing:read:user_entitlement:admin`
-   - `dashboard:read:list_meeting_participants:admin` (optional)
 
 ---
 
 ## Installation 🛠️
 
-### Run Locally 💻
+### Quick Start (Recommended) 🚀
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/manthan89-py/AI-Based-Recruitment-System.git
+   git clone https://github.com/ar-baazaja/Automated-Recruitment-System.git
    ```
 
-2. Ensure Python (version >= 3.10) is installed.
-
-3. Install the UV package manager:
+2. Navigate to the project directory:
    ```bash
-   pip install uv
+   cd Automated-Recruitment-System
    ```
 
-4. Navigate to the cloned repository:
+3. Install dependencies:
    ```bash
-   cd AI-Based-Recruitment-System
+   pip install streamlit anthropic mistralai openai phidata pypdf2 streamlit-pdf-viewer huggingface_hub
    ```
 
-5. Create a new virtual environment:
+4. Run the application:
    ```bash
-   uv venv --python 3.10
+   python -m streamlit run app.py
    ```
 
-6. Activate the environment:
-   - On Linux/MacOS:
-     ```bash
-     source .venv/bin/activate
-     ```
-   - On Windows:
-     ```bash
-     .venv\Scripts\activate
-     ```
+5. Open your browser and go to: `http://localhost:7860`
 
-7. Install dependencies:
+### Using Ollama (Free Local AI) 🆓
+
+1. Install Ollama from [https://ollama.ai/](https://ollama.ai/)
+2. Pull a model:
    ```bash
-   uv install
+   ollama pull llama3.2:3b
    ```
-
-8. Run the application:
+3. Start Ollama service:
    ```bash
-   streamlit run app.py
+   ollama serve
    ```
+4. Run the application and select "Ollama" as the model provider
 
 ### Run with Docker 🐳
 
-#### Build Locally 🏗️
 1. Build the Docker image:
    ```bash
-   docker build -t localmachine/ai_recruitment_team:main-latest .
+   docker build -t ai-recruitment-system .
    ```
 
 2. Run the Docker container:
    ```bash
-   docker run -p 7860:7860 localmachine/ai_recruitment_team:main-latest
+   docker run -p 7860:7860 ai-recruitment-system
    ```
-
-#### Use Prebuilt Image 📦
-1. Pull the prebuilt image from DockerHub:
-   ```bash
-   docker pull manthan07/ai_recruitment_team:main-latest
-   ```
-
-2. Run the Docker container:
-   ```bash
-   docker run -p 7860:7860 manthan07/ai_recruitment_team:main-latest
-   ```
-
----
-
-## Technologies Used 🛠️
-
-- **PhiData:** Agents (Resume Analyzer Agent, Email Agent, Scheduler Agent) and Tools (ZoomTool)
-- **Python** 🐍
-- **Pydantic** 📋
-- **PyPDF2** 📄
-- **Streamlit** 🌐
 
 ---
 
 ## Features ✨
 
-- **Automated Resume Analysis:** 📄 Evaluate candidate resumes based on the provided job description.
-- **Email Notifications:** ✉️ Notify candidates of their selection status with detailed feedback.
-- **Zoom Meeting Scheduler:** 📅 Automatically schedule interviews with selected candidates.
+- **Multiple AI Models**: Choose from SimpleAI (free), Ollama (free local), OpenAI, Claude, or Mistral
+- **Automated Resume Analysis**: 📄 Evaluate candidate resumes based on the provided job description
+- **Smart Candidate Selection**: AI-powered analysis with detailed feedback
+- **Email Notifications**: ✉️ Notify candidates of their selection status with detailed feedback
+- **Zoom Meeting Scheduler**: 📅 Automatically schedule interviews with selected candidates
+- **Free Options Available**: Use SimpleAI or Ollama without any API costs
+
+---
+
+## How to Use 🎯
+
+1. **Configure Settings**: In the sidebar, set up your AI model, Zoom credentials, and Gmail settings
+2. **Upload Resume**: Upload a candidate's resume in PDF format
+3. **Select Job Role**: Choose the position from available job descriptions
+4. **Analyze Resume**: Click "Analyze Resume" to get AI-powered evaluation
+5. **Review Results**: See detailed feedback and selection decision
+6. **Proceed to Interview**: Schedule interviews and send emails to selected candidates
+
+---
+
+## Technologies Used 🛠️
+
+- **Streamlit**: Web application framework
+- **SimpleAI**: Built-in free AI model
+- **Ollama**: Local AI model support
+- **OpenAI/Claude/Mistral**: Cloud AI models
+- **PyPDF2**: PDF processing
+- **Python**: Backend logic
+
+---
+
+## Benefits 🌟
+
+- ✅ **Completely FREE** with SimpleAI or Ollama
+- ✅ **No API costs** for basic functionality
+- ✅ **Privacy** - data stays on your computer with local models
+- ✅ **Fast and reliable** resume analysis
+- ✅ **Automated workflow** from resume to interview scheduling
 
 ---
 
@@ -140,8 +149,8 @@ To configure this application, the following credentials and accounts are requir
 
 Contributions are welcome! Please fork this repository and submit a pull request for any enhancements or bug fixes.
 
-## Final Note 📝:
-
-Thank you very much Shubham Sahoo for creating an amazing repository regarding [LLM Applications.](https://github.com/Shubhamsaboo/awesome-llm-apps)
-
 ---
+
+## License 📄
+
+This project is open source and available under the MIT License.
