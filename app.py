@@ -27,12 +27,12 @@ def main() -> None:
 
         # API Configuration
         st.subheader("LLM Models")
-        model_provider = st.selectbox("Model Provider", ["SimpleAI", "Ollama", "OpenAI", "Claude", "Mistral"])
+        model_provider = st.selectbox("Model Provider", ["SimpleAI"])
         api_key = st.text_input(
-            "API Key (Not needed for SimpleAI/Ollama)",
+            "API Key (Not needed for SimpleAI)",
             type="password",
             value=st.session_state.api_key,
-            help="Get your API key (skip for SimpleAI/Ollama)",
+            help="API key not needed for SimpleAI",
         )
         if model_provider:
             st.session_state.model_provider = model_provider
@@ -93,9 +93,9 @@ def main() -> None:
             "Company Name": st.session_state.company_name,
         }
 
-    # Only require API key for paid models
-    if st.session_state.model_provider not in ["SimpleAI", "Ollama"] and not st.session_state.api_key:
-        st.warning("Please enter your API Key in the sidebar to continue.")
+    # Only require API key for paid models (none in this case)
+    if st.session_state.model_provider != "SimpleAI":
+        st.warning("Please select SimpleAI as the model provider.")
         return
 
     missing_configs = [k for k, v in required_configs.items() if not v]
