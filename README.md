@@ -1,5 +1,7 @@
 # AI Recruitment System 🚀
 
+**🌐 Live Demo: [https://recruitmentsystem.streamlit.app/](https://recruitmentsystem.streamlit.app/)**
+
 ## Project Description 📝
 
 This project is an **AI Recruitment System** designed to accelerate the hiring process for HR and technical recruiters. The application allows recruiters to:
